@@ -7,7 +7,7 @@ import Operators from "./components/Operators";
 const App = () => {
   const [input, setInput] = useState("");
 
-  // function for calculating a specific result
+  //function to calculate a result on a specific button click and update the state
 
   const calculate = (button) => {
     if (button === "=") {
@@ -15,9 +15,7 @@ const App = () => {
       setInput(result);
     } else if (button === "c") {
       setInput("");
-    } else {
-      setInput(input + button);
-    }
+    } else setInput(input + button);
   };
 
   const handleClick = (e) => {
@@ -28,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Calculator</h1>
-      <h2>{input}</h2>
+      <h2 data-testid="display">{input}</h2>
       <Operators handleClick={handleClick} />
       <Numbers handleClick={handleClick} />
     </div>
